@@ -1,3 +1,8 @@
+test-data/
+notebooks/
+.pytest_cache/
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

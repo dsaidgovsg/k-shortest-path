@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pytest = "*"
+gitpython = "*"
+
+[packages]
+networkx = ">=2.1"
+numpy = ">=1.13.3"
+pandas = ">=0.21.0"
+scikit-learn = ">=0.19.1"
+
+[requires]
+python_version = "3.6"
