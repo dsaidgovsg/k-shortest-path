@@ -3,7 +3,7 @@
 [![Python version](https://img.shields.io/badge/python-2.7-blue.svg)](https://shields.io/)
 [![Python version](https://img.shields.io/badge/python-3.6-blue.svg)](https://shields.io/)
 
-k-shortest-path implements various algorithms for the K shortest path problem. Currently, the only implementation is for the deviation path algorithm by Martins, Pascoals and Santos to generate all simple paths from from (any) source to a fixed target.
+k-shortest-path implements various algorithms for the K shortest path problem. Currently, the only implementation is for the deviation path algorithm by Martins, Pascoals and Santos (see [1](https://www.mat.uc.pt/~eqvm/cientificos/investigacao/Artigos/deviation.ps.gz) and [2](http://www.dis.uniroma1.it/challenge9/papers/santos.pdf)) to generate all simple paths from from (any) source to a fixed target.
 
 ## Installation
 ```bash
