@@ -103,6 +103,9 @@ class SingleTargetDeviationPathAlgorithm(object):
                 value if one wants to search for an unlimited number of
                 deviation paths.
         """
+        if target not in G:
+            raise nx.NodeNotFound('target node %s not in graph' % target)
+
         dist, paths = nx.single_source_dijkstra(G_reverse, target)
         for node in paths:
             paths[node] = paths[node][::-1]
@@ -221,7 +224,7 @@ class SingleTargetDeviationPathAlgorithm(object):
                         list_x.push(path_cost + cost, new_path, i, path_cost)
                     break
 
-    def shortest_simple_paths(self, source):
+    def _shortest_simple_paths(self, source):
         """Determines the K shortest simple paths from a source to self.target
 
         Parameters
@@ -286,3 +289,25 @@ class SingleTargetDeviationPathAlgorithm(object):
                                                      'weight'):
                     if tuple(path) not in simple_paths_found:
                         yield path
+
+    def shortest_simple_paths(self, source):
+        """Determines the K shortest simple paths from a source to self.target
+
+        Parameters
+        ----------
+            source : str
+                The source node of interest
+
+        Returns
+        ------
+            : mps._shortest_simple_paths
+                Generator object which yields the kth shortest simple path.
+
+        Raises
+        ------
+            networkx.NodeNotFound : If source is not in graph
+        """
+        if source not in self.graph:
+            raise nx.NodeNotFound('source node %s not in graph' % source)
+
+        return self._shortest_simple_paths(source)

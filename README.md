@@ -26,6 +26,9 @@ Create one **kspath.deviation_path.mps.SingleTargetDeviationPathAlgorithm** obje
 **Returns**
 * _kspath.deviation_path.mps.SingleTargetDeviationPathAlgorithm_ object
 
+**Raises**
+* _NodeNotFound_ – If target does not exist in _G_
+
 ### 2. **kspath.deviation_path.mps.SingleTargetDeviationPathAlgorithm**.shortest_simple_paths(_source_)
 
 **Parameters**
@@ -33,6 +36,9 @@ Create one **kspath.deviation_path.mps.SingleTargetDeviationPathAlgorithm** obje
 
 **Returns**
 * _generator_
+
+**Raises**
+* _NodeNotFound_ – If source does not exist in _G_
 
 ```python
 from kspath.deviation_path.mps import SingleTargetDeviationPathAlgorithm
