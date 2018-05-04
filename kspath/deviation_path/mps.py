@@ -235,6 +235,9 @@ class SingleTargetDeviationPathAlgorithm(object):
                 List of nodes indicating the kth shortest simple path from
                 source to self.target
         """
+        if source not in self.graph.nodes:
+            raise nx.NodeNotFound
+        
         # check that there is actually a path from source to self.target
         if source in self._paths:
             candidate_paths = PathBuffer()
