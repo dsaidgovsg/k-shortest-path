@@ -7,7 +7,8 @@ from kspath.deviation_path.mps import (
 from tests.utils import check_dpa_mps_implementation, compute_path_weight
 
 
-def test_node_not_found():
+@pytest.mark.fast
+def test_target_node_not_found():
     G = nx.DiGraph()
     G.add_edge('a', 'b', weight=0.6)
     G.add_edge('a', 'c', weight=0.2)
@@ -16,7 +17,25 @@ def test_node_not_found():
     G.add_edge('c', 'f', weight=0.9)
     G.add_edge('a', 'd', weight=0.3)
 
-    dpa_mps = SingleTargetDeviationPathAlgorithm.create_from_graph(G=G, target='d', weight='weight')
+    with pytest.raises(nx.NodeNotFound):
+        SingleTargetDeviationPathAlgorithm.create_from_graph(
+            G=G, target='z', weight='weight'
+        )
+
+
+@pytest.mark.fast
+def test_source_node_not_found():
+    G = nx.DiGraph()
+    G.add_edge('a', 'b', weight=0.6)
+    G.add_edge('a', 'c', weight=0.2)
+    G.add_edge('c', 'd', weight=0.1)
+    G.add_edge('c', 'e', weight=0.7)
+    G.add_edge('c', 'f', weight=0.9)
+    G.add_edge('a', 'd', weight=0.3)
+
+    dpa_mps = SingleTargetDeviationPathAlgorithm.create_from_graph(
+        G=G, target='d', weight='weight'
+    )
     
     with pytest.raises(nx.NodeNotFound):
         dpa_mps.shortest_simple_paths(source='z')

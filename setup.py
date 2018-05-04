@@ -11,7 +11,7 @@ pip install .
 from setuptools import setup, find_packages
 
 setup(name='kspath',
-      version='0.1.0',
+      version='0.1.1',
       description='Implements algorithms for the K shortest path problem.',
       author='Chong Hon Fah',
       author_email='hfchong@data.gov.sg',
